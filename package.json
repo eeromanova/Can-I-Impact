@@ -10,7 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write --ignore-path .gitignore .",
     "format:check": "prettier --check --ignore-path .gitignore .",
-    "prepare": "sh -c 'cd .. && husky install'"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx,json,css,md}": [
