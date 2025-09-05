@@ -1,0 +1,79 @@
+{
+  "en": {
+    "home": {
+      "title": "Calculate Your Carbon Footprint",
+      "subtitle": "Discover your environmental impact in 5 minutes",
+      "description": "Take our simple survey to understand your carbon emissions and get personalized tips to reduce your footprint.",
+      "button": "Know more"
+    },
+    "header": {
+      "logo": "EcoTrack",
+      "switchLanguage": "Switch Language"
+    },
+    "onBoarding": {
+      "title": "How it works",
+      "steps": [
+        "Answer simple questions about your lifestyle",
+        "We calculate your carbon footprint",
+        "Your results and recommendations await you"
+      ],
+      "button": "Start Calculation"
+    },
+    "house": {
+      "title": "Household Energy Use",
+      "questions": [
+        {
+          "question": "How many people live in your household?",
+          "input": {
+            "id": "householdSize",
+            "placeholder": "Enter number of people"
+          },
+          "note": "This helps us estimate shared energy consumption."
+        },
+        {
+          "question": "How much electricity do you use per year?",
+          "input": {
+            "id": "electricityUsage",
+            "placeholder": "3500"
+          },
+          "note": "If you don't know, you can leave it as it is. We will use an average value - 3500 kWh."
+        },
+        {
+          "question": "How do you heat your home?",
+          "input": {
+            "id": "heatingType",
+            "options": [
+              "Natural gas",
+              "Heating oil",
+              "District heating",
+              "Heat pump",
+              "Electricity"
+            ]
+          },
+          "note": "If you don't know, you can leave it as it is. We will use an average value - 3500 kWh."
+        }
+      ]
+    }
+  },
+  "de": {
+    "home": {
+      "title": "Berechnen Sie Ihren CO₂-Fußabdruck",
+      "subtitle": "Entdecken Sie Ihre Umweltauswirkung in 5 Minuten",
+      "description": "Nehmen Sie an unserer einfachen Umfrage teil, um Ihre CO₂-Emissionen zu verstehen und erhalten Sie personalisierte Tipps zur Reduzierung.",
+      "button": "Mehr erfahren"
+    },
+    "header": {
+      "logo": "ÖkoSpur",
+      "switchLanguage": "Switch Language"
+    },
+    "onBoarding": {
+      "title": "So funktioniert's",
+      "steps": [
+        "Beantworten Sie einfache Fragen zu Ihrem Lebensstil",
+        "Wir berechnen Ihren CO₂-Fußabdruck",
+        "Ihre Ergebnisse und Empfehlungen erwarten Sie"
+      ],
+      "button": "Berechnung starten"
+    }
+  }
+}
