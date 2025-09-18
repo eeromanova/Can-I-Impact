@@ -40,7 +40,7 @@ export const OnePageQuestions = ({ page }: Props) => {
   });
   return (
     <FormProvider {...methods}>
-      <form className='mx-auto flex max-w-md flex-col gap-6 p-4'>
+      <form className='mx-auto flex flex-col gap-6 p-4'>
         <h2 className='text-main-light text-center text-3xl font-medium'>{surveyData.title}</h2>
         <Note />
         {surveyData.questions.map((question, index) => (

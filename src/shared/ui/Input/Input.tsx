@@ -30,7 +30,7 @@ export const Input = ({ placeholder, value, onBlur, name, onChange }: Props) => 
       onInput={(e) => {
         e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
       }}
-      type='number'
+      type='text'
       inputMode='numeric'
     />
   );

@@ -38,7 +38,7 @@
           "defaultValue": "2"
         },
         {
-          "question": "How much electricity do you use per year?",
+          "question": "How much electricity do you use per year, kWh?",
           "input": {
             "id": "electricityUsage",
             "placeholder": "Enter kWh",
@@ -60,6 +60,14 @@
             "defaultValue": "Natural gas"
           },
           "defaultValue": "Natural gas"
+        },
+        {
+          "question": "How much heating energy / fuel do you use per year, kWh/liters?",
+          "input": {
+            "id": "heatingUsage",
+            "placeholder": "Enter kWh (or liters for oil)"
+          },
+          "defaultValue": "9000"
         }
       ]
     },
@@ -79,23 +87,74 @@
           "question": "What is your car type?",
           "input": {
             "id": "carType",
-            "options": ["Petrol", "Diesel", "Hybrid", "Electric"],
+            "options": ["Petrol", "Diesel", "Hybrid", "Plug-in Hybrid", "Electric"],
             "watchedField": { "id": "carExistence", "value": "Yes" },
             "defaultValue": "Petrol"
           },
           "defaultValue": "Petrol"
         },
         {
-          "question": "How many kilometers do you drive per year?",
+          "question": "How many kilometers do you drive per year, km?",
           "input": {
             "id": "kmPerYear",
             "placeholder": "Enter kilometers",
             "patternMessage": "Please enter a valid number",
             "watchedField": { "id": "carExistence", "value": "Yes" }
           },
-          "defaultValue": "15000"
+          "defaultValue": "12320"
         }
       ]
+    },
+    "eating": {
+      "title": "Food & Diet",
+      "questions": [
+        {
+          "question": "Which diet best describes you?",
+          "input": {
+            "id": "dietType",
+            "options": ["Average (mixed)", "Low-meat", "Vegetarian", "Vegan"],
+            "defaultValue": "Average (mixed)"
+          },
+          "note": "Diet choices impact food-related emissions."
+        },
+        {
+          "question": "Do you waste food frequently?",
+          "input": {
+            "id": "foodWaste",
+            "options": ["Rarely", "Sometimes", "Often"],
+            "defaultValue": "Sometimes"
+          },
+          "note": "Food waste increases effective emissions per consumed meal."
+        }
+      ],
+      "defaultAnnualEmissionsPerPerson_kgCO2e": 2300,
+      "defaultNote": "Average diet-related emissions per person per year in Germany (kg CO2e)."
+    },
+
+    "consumption": {
+      "title": "Other consumption (goods & services)",
+      "questions": [
+        {
+          "question": "How would you estimate your monthly spending on non-essential goods (EUR)?",
+          "input": {
+            "id": "monthlyGoodsSpending",
+            "placeholder": "Enter EUR per month",
+            "patternMessage": "Please enter a valid number"
+          },
+          "defaultValue": "200",
+          "note": "Used to estimate scope-3 like emissions from goods (approximation)."
+        },
+        {
+          "question": "Do you buy many electronics / fast-fashion items (frequency)?",
+          "input": {
+            "id": "buyFrequency",
+            "options": ["Rarely", "Occasionally", "Often"],
+            "defaultValue": "Occasionally"
+          }
+        }
+      ],
+      "defaultAnnualEmissionsPerPerson_kgCO2e": 1600,
+      "defaultNote": "A rough average for consumption-related emissions per person per year (goods & services) — used when user does not provide details."
     },
     "getResultsButton": {
       "text": "Get Results"
