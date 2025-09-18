@@ -1,0 +1,193 @@
+{
+  "en": {
+    "home": {
+      "title": "Calculate Your Carbon Footprint",
+      "subtitle": "Discover your environmental impact in 5 minutes",
+      "description": "Take our simple survey to understand your carbon emissions and get personalized tips to reduce your footprint.",
+      "button": "Know more"
+    },
+    "header": {
+      "logo": "EcoTrack",
+      "switchLanguage": "Switch Language"
+    },
+    "onBoarding": {
+      "title": "How it works",
+      "steps": [
+        "Answer simple questions about your lifestyle",
+        "We calculate your carbon footprint",
+        "Your results and recommendations await you"
+      ],
+      "button": "Start Calculation"
+    },
+    "note": {
+      "text": "If you're unsure about any question, feel free to leave it as is. We'll use average values to estimate your carbon footprint. You can find these average values under each question."
+    },
+    "averageInfo": {
+      "text": "Average value:"
+    },
+    "house": {
+      "title": "Household Energy Use",
+      "questions": [
+        {
+          "question": "How many people live in your household?",
+          "input": {
+            "id": "householdSize",
+            "placeholder": "Enter quantity",
+            "patternMessage": "Please enter a valid number"
+          },
+          "defaultValue": "2"
+        },
+        {
+          "question": "How much electricity do you use per year, kWh?",
+          "input": {
+            "id": "electricityUsage",
+            "placeholder": "Enter kWh",
+            "patternMessage": "Please enter a valid number"
+          },
+          "defaultValue": "3500"
+        },
+        {
+          "question": "How do you heat your home?",
+          "input": {
+            "id": "heatingType",
+            "options": [
+              "Natural gas",
+              "Heating oil",
+              "District heating",
+              "Heat pump",
+              "Electricity"
+            ],
+            "defaultValue": "Natural gas"
+          },
+          "defaultValue": "Natural gas"
+        },
+        {
+          "question": "How much heating energy / fuel do you use per year, kWh/liters?",
+          "input": {
+            "id": "heatingUsage",
+            "placeholder": "Enter kWh (or liters for oil)"
+          },
+          "defaultValue": "9000"
+        }
+      ]
+    },
+    "transport": {
+      "title": "Transport",
+      "questions": [
+        {
+          "question": "Do you have a car?",
+          "input": {
+            "id": "carExistence",
+            "options": ["Yes", "No"],
+            "defaultValue": "Yes"
+          },
+          "defaultValue": "Yes"
+        },
+        {
+          "question": "What is your car type?",
+          "input": {
+            "id": "carType",
+            "options": ["Petrol", "Diesel", "Hybrid", "Plug-in Hybrid", "Electric"],
+            "watchedField": { "id": "carExistence", "value": "Yes" },
+            "defaultValue": "Petrol"
+          },
+          "defaultValue": "Petrol"
+        },
+        {
+          "question": "How many kilometers do you drive per year, km?",
+          "input": {
+            "id": "kmPerYear",
+            "placeholder": "Enter kilometers",
+            "patternMessage": "Please enter a valid number",
+            "watchedField": { "id": "carExistence", "value": "Yes" }
+          },
+          "defaultValue": "12320"
+        }
+      ]
+    },
+    "eating": {
+      "title": "Food & Diet",
+      "questions": [
+        {
+          "question": "Which diet best describes you?",
+          "input": {
+            "id": "dietType",
+            "options": ["Average (mixed)", "Low-meat", "Vegetarian", "Vegan"],
+            "defaultValue": "Average (mixed)"
+          },
+          "note": "Diet choices impact food-related emissions."
+        },
+        {
+          "question": "Do you waste food frequently?",
+          "input": {
+            "id": "foodWaste",
+            "options": ["Rarely", "Sometimes", "Often"],
+            "defaultValue": "Sometimes"
+          },
+          "note": "Food waste increases effective emissions per consumed meal."
+        }
+      ],
+      "defaultAnnualEmissionsPerPerson_kgCO2e": 2300,
+      "defaultNote": "Average diet-related emissions per person per year in Germany (kg CO2e)."
+    },
+
+    "consumption": {
+      "title": "Other consumption (goods & services)",
+      "questions": [
+        {
+          "question": "How would you estimate your monthly spending on non-essential goods (EUR)?",
+          "input": {
+            "id": "monthlyGoodsSpending",
+            "placeholder": "Enter EUR per month",
+            "patternMessage": "Please enter a valid number"
+          },
+          "defaultValue": "200",
+          "note": "Used to estimate scope-3 like emissions from goods (approximation)."
+        },
+        {
+          "question": "Do you buy many electronics / fast-fashion items (frequency)?",
+          "input": {
+            "id": "buyFrequency",
+            "options": ["Rarely", "Occasionally", "Often"],
+            "defaultValue": "Occasionally"
+          }
+        }
+      ],
+      "defaultAnnualEmissionsPerPerson_kgCO2e": 1600,
+      "defaultNote": "A rough average for consumption-related emissions per person per year (goods & services) — used when user does not provide details."
+    },
+    "getResultsButton": {
+      "text": "Get Results"
+    }
+  },
+  "de": {
+    "home": {
+      "title": "Berechnen Sie Ihren CO₂-Fußabdruck",
+      "subtitle": "Entdecken Sie Ihre Umweltauswirkung in 5 Minuten",
+      "description": "Nehmen Sie an unserer einfachen Umfrage teil, um Ihre CO₂-Emissionen zu verstehen und erhalten Sie personalisierte Tipps zur Reduzierung.",
+      "button": "Mehr erfahren"
+    },
+    "header": {
+      "logo": "ÖkoSpur",
+      "switchLanguage": "Switch Language"
+    },
+    "onBoarding": {
+      "title": "So funktioniert's",
+      "steps": [
+        "Beantworten Sie einfache Fragen zu Ihrem Lebensstil",
+        "Wir berechnen Ihren CO₂-Fußabdruck",
+        "Ihre Ergebnisse und Empfehlungen erwarten Sie"
+      ],
+      "button": "Berechnung starten"
+    },
+    "note": {
+      "text": "Wenn Sie bei einer Frage unsicher sind, können Sie diese gerne unverändert lassen. Wir verwenden Durchschnittswerte, um Ihren CO2-Fußabdruck zu schätzen. Diese Durchschnittswerte finden Sie unter jeder Frage."
+    },
+    "averageInfo": {
+      "text": "Durchschnittswert:"
+    },
+    "getResultsButton": {
+      "text": "Ergebnisse erzielen"
+    }
+  }
+}
