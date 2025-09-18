@@ -2,12 +2,15 @@ export type SurveyInput = {
   id: string;
   placeholder?: string;
   options?: string[];
+  patternMessage?: string;
+  default?: string;
+  watchedField?: { id: string; value: string };
 };
 
 export type SurveyQuestion = {
   question: string;
   input: SurveyInput;
-  note?: string;
+  defaultValue?: string;
 };
 
 export type SurveySection = {

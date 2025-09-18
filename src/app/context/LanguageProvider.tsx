@@ -12,7 +12,6 @@ type Props = {
   savedLang: SupportedLang;
 };
 
-// рекурсивно получаем ключи
 type DeepKeyOf<T> = T extends object
   ? {
       [K in keyof T]: K extends string
@@ -23,9 +22,8 @@ type DeepKeyOf<T> = T extends object
     }[keyof T]
   : never;
 
-type TranslationKey = DeepKeyOf<TranslationStructure>;
+export type TranslationKey = DeepKeyOf<TranslationStructure>;
 
-// значение перевода может быть:
 type TranslationValue = string | string[] | Record<string, unknown> | Record<string, unknown>[];
 
 type LanguageContextValue = {

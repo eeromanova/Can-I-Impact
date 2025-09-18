@@ -19,6 +19,12 @@
       ],
       "button": "Start Calculation"
     },
+    "note": {
+      "text": "If you're unsure about any question, feel free to leave it as is. We'll use average values to estimate your carbon footprint. You can find these average values under each question."
+    },
+    "averageInfo": {
+      "text": "Average value:"
+    },
     "house": {
       "title": "Household Energy Use",
       "questions": [
@@ -26,17 +32,19 @@
           "question": "How many people live in your household?",
           "input": {
             "id": "householdSize",
-            "placeholder": "Enter number of people"
+            "placeholder": "Enter quantity",
+            "patternMessage": "Please enter a valid number"
           },
-          "note": "This helps us estimate shared energy consumption."
+          "defaultValue": "2"
         },
         {
           "question": "How much electricity do you use per year?",
           "input": {
             "id": "electricityUsage",
-            "placeholder": "3500"
+            "placeholder": "Enter kWh",
+            "patternMessage": "Please enter a valid number"
           },
-          "note": "If you don't know, you can leave it as it is. We will use an average value - 3500 kWh."
+          "defaultValue": "3500"
         },
         {
           "question": "How do you heat your home?",
@@ -48,11 +56,49 @@
               "District heating",
               "Heat pump",
               "Electricity"
-            ]
+            ],
+            "defaultValue": "Natural gas"
           },
-          "note": "If you don't know, you can leave it as it is. We will use an average value - 3500 kWh."
+          "defaultValue": "Natural gas"
         }
       ]
+    },
+    "transport": {
+      "title": "Transport",
+      "questions": [
+        {
+          "question": "Do you have a car?",
+          "input": {
+            "id": "carExistence",
+            "options": ["Yes", "No"],
+            "defaultValue": "Yes"
+          },
+          "defaultValue": "Yes"
+        },
+        {
+          "question": "What is your car type?",
+          "input": {
+            "id": "carType",
+            "options": ["Petrol", "Diesel", "Hybrid", "Electric"],
+            "watchedField": { "id": "carExistence", "value": "Yes" },
+            "defaultValue": "Petrol"
+          },
+          "defaultValue": "Petrol"
+        },
+        {
+          "question": "How many kilometers do you drive per year?",
+          "input": {
+            "id": "kmPerYear",
+            "placeholder": "Enter kilometers",
+            "patternMessage": "Please enter a valid number",
+            "watchedField": { "id": "carExistence", "value": "Yes" }
+          },
+          "defaultValue": "15000"
+        }
+      ]
+    },
+    "getResultsButton": {
+      "text": "Get Results"
     }
   },
   "de": {
@@ -74,6 +120,15 @@
         "Ihre Ergebnisse und Empfehlungen erwarten Sie"
       ],
       "button": "Berechnung starten"
+    },
+    "note": {
+      "text": "Wenn Sie bei einer Frage unsicher sind, können Sie diese gerne unverändert lassen. Wir verwenden Durchschnittswerte, um Ihren CO2-Fußabdruck zu schätzen. Diese Durchschnittswerte finden Sie unter jeder Frage."
+    },
+    "averageInfo": {
+      "text": "Durchschnittswert:"
+    },
+    "getResultsButton": {
+      "text": "Ergebnisse erzielen"
     }
   }
 }

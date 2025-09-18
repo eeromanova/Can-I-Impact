@@ -1,4 +1,4 @@
-export const Note = () => {
+export const IconNote = () => {
   return (
     <svg
       width='24'
@@ -15,23 +15,17 @@ export const Note = () => {
         stroke='currentColor'
         strokeWidth='2'
       />
-      <line
-        x1='12'
-        y1='8'
-        x2='12'
-        y2='16'
+      <path
+        d='M12 16V12'
         stroke='currentColor'
         strokeWidth='2'
         strokeLinecap='round'
       />
-      <line
-        x1='12'
-        y1='16'
-        x2='12'
-        y2='19'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
+      <circle
+        cx='12'
+        cy='8'
+        r='1'
+        fill='currentColor'
       />
     </svg>
   );

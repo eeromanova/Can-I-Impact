@@ -1,5 +1,5 @@
-import { arch } from 'os';
 import { ReactNode } from 'react';
+import { cn } from '@/shared/utils';
 type ButtonClickHandler = ((event: React.MouseEvent<HTMLButtonElement>) => void) | (() => void);
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
   disabled?: boolean;
   width?: number | string;
   ariaLabel?: string;
+  colorStyle?: 'primary' | 'secondary';
 };
 
 export const Button = ({
@@ -18,6 +19,7 @@ export const Button = ({
   type = 'button',
   disabled = false,
   ariaLabel,
+  colorStyle = 'primary',
 }: Props) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled) {
@@ -32,6 +34,15 @@ export const Button = ({
       }
     }
   };
+  const baseClasses = `w-full rounded-xl px-6 py-3 text-lg font-semibold transition duration-200 ease-in-out focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 sm:w-auto cursor-pointer`;
+  const colorClasses = {
+    primary: cn('bg-main-light text-text-inverse', 'hover:bg-green-700', baseClasses),
+    secondary: cn(
+      'bg-transparent text-main-dark',
+      'hover:bg-main-light hover:text-text-inverse',
+      baseClasses
+    ),
+  };
   return (
     <button
       type={type}
@@ -40,7 +51,7 @@ export const Button = ({
       disabled={disabled}
       aria-disabled={disabled}
       aria-label={ariaLabel}
-      className={`bg-main-light text-text-inverse w-full rounded-xl px-6 py-3 text-lg font-semibold transition duration-200 ease-in-out hover:bg-green-700 focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 sm:w-auto`}
+      className={colorClasses[colorStyle]}
     >
       {text}
     </button>
