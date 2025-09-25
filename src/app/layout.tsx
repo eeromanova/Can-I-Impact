@@ -31,7 +31,7 @@ export default async function RootLayout({
       lang={lang}
       className={font.className}
     >
-      <body className='gradient-bg mx-auto min-h-screen w-[90%] md:w-7/10 lg:w-6/10'>
+      <body className='gradient-bg mx-auto min-h-screen'>
         <LanguageProvider savedLang={lang}>
           <Header />
           <main className='mx-auto flex w-[90%] flex-col items-center py-4 md:w-7/10 md:py-6 lg:py-8'>

@@ -34,7 +34,7 @@ export const Button = ({
       }
     }
   };
-  const baseClasses = `w-full rounded-xl px-6 py-3 text-lg font-semibold transition duration-200 ease-in-out focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 sm:w-auto cursor-pointer`;
+  const baseClasses = `max-w-fit rounded-xl px-6 py-3 text-lg font-semibold transition duration-200 ease-in-out focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 sm:w-auto cursor-pointer`;
   const colorClasses = {
     primary: cn('bg-main-light text-text-inverse hover:bg-green-700', baseClasses),
     secondary: cn(
