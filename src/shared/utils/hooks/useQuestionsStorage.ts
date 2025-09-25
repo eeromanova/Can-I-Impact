@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-type AnswerValue = string | string[];
+type AnswerValue = string | null;
 type AnswerMap = Record<string, AnswerValue>;
 
 const STORAGE_KEY = 'answers_v1';
@@ -45,8 +45,8 @@ export const useQuestionsStorage = () => {
       const next = { ...prev, [questionId]: value };
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch (e) {
-        console.warn('Failed to save answers', e);
+      } catch (err) {
+        console.warn('Failed to save answers', err);
       }
       return next;
     });

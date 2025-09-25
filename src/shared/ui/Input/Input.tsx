@@ -11,7 +11,7 @@ type Props = {
 
 export const Input = ({ placeholder, value, onBlur, name, onChange }: Props) => {
   const inputClasses = cn(
-    'w-full px-3 py-2 text-sm rounded-md outline-none',
+    'max-w-fit px-3 py-2 text-sm rounded-md outline-none',
     'border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent',
     '[&:placeholder-shown]:border-green-400',
     '[&:not(:placeholder-shown)]:border-transparent'

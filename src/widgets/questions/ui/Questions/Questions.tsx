@@ -1,8 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useLanguage } from '@/app/context/LanguageProvider';
 import { OnePageQuestions } from '@/features/questions';
-import { ProgressBar } from '@/features/progress-bar';
-import { PagesToggler } from '@/features/pages-toggler';
+import { ProgressBar, PagesToggler, Button } from '@/shared/ui';
+import { useQuestionsStorage } from '@/shared/utils';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface QuestionsClientProps {
   initialPage: string;
@@ -14,23 +15,51 @@ const Pages = [
   { id: '4', component: <OnePageQuestions page='consumption' /> },
 ];
 export const Questions = ({ initialPage }: QuestionsClientProps) => {
-  const [currentPage, setCurrentPage] = useState<string>(initialPage);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { tString } = useLanguage();
+
+  const { clearAnswers } = useQuestionsStorage();
+  const urlPage = searchParams?.get('page') ?? initialPage ?? '1';
+  const currentPage = ((): string => {
+    const n = Number(urlPage);
+    if (!Number.isFinite(n) || n < 1) return '1';
+    if (n > Pages.length) return String(Pages.length);
+    return String(n);
+  })();
 
   const CurrentComponent = Pages.find((page) => page.id === currentPage)?.component || (
     <OnePageQuestions page='house' />
   );
+  const goTo = (page: number) => {
+    const next = Math.max(1, Math.min(page, Pages.length));
+    const url = `/questions?page=${next}`;
+    router.push(url);
+  };
+  const onHandleResults = () => {
+    window.history.replaceState(window.history.state, '', '/questions?page=1');
+    router.push('/results');
+    clearAnswers();
+  };
   return (
-    <div className='flex w-full flex-col gap-4'>
+    <div className='flex w-full flex-col items-center gap-10'>
       {CurrentComponent}
       <PagesToggler
         currentPage={currentPage}
-        onHandleClickBack={() => setCurrentPage(Number(currentPage) - 1 + '')}
-        onHandleClickNext={() => setCurrentPage(Number(currentPage) + 1 + '')}
+        onHandleClickBack={() => goTo(Number(currentPage) - 1)}
+        onHandleClickNext={() => goTo(Number(currentPage) + 1)}
       />
       <ProgressBar
-        current={Number(currentPage) + 1}
+        currentPage={Number(currentPage) + 1}
         total={Pages.length}
       />
+      {currentPage === '4' && (
+        <Button
+          text={tString('getResultsButton.text')}
+          ariaLabel={tString('getResultsButton.text')}
+          onClick={onHandleResults}
+        />
+      )}
     </div>
   );
 };

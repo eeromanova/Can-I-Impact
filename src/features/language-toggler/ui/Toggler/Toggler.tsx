@@ -9,7 +9,7 @@ export const Toggler = () => {
         const isActive = lang === languageCode;
 
         const buttonClass = cn(
-          'flex items-center gap-2 rounded-2xl px-4 py-2 transition-colors',
+          'flex items-center gap-2 rounded-2xl px-4 py-2 transition-colors cursor-pointer',
           isActive && 'font-medium bg-green-900 text-white',
           !isActive && 'text-green-900 hover:bg-gray-100 hover:text-gray-900'
         );

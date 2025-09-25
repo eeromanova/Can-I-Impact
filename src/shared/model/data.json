@@ -51,23 +51,37 @@
           "input": {
             "id": "heatingType",
             "options": [
-              "Natural gas",
-              "Heating oil",
-              "District heating",
-              "Heat pump",
-              "Electricity"
+              { "id": "gas", "value": "Natural gas" },
+              { "id": "oil", "value": "Heating oil" },
+              { "id": "district", "value": "District heating" },
+              { "id": "pump", "value": "Heat pump" },
+              { "id": "electricity", "value": "Electricity" }
             ],
-            "defaultValue": "Natural gas"
+
+            "defaultValue": "gas"
           },
-          "defaultValue": "Natural gas"
+          "defaultValue": "gas"
         },
         {
-          "question": "How much heating energy / fuel do you use per year, kWh/liters?",
+          "question": "How much heating energy do you use per year, kWh?",
           "input": {
-            "id": "heatingUsage",
-            "placeholder": "Enter kWh (or liters for oil)"
+            "id": "heatingUsageKWh",
+            "placeholder": "Enter kWh",
+            "watchedField": {
+              "id": "heatingType",
+              "value": ["gas", "district", "pump", "electricity"]
+            }
           },
           "defaultValue": "9000"
+        },
+        {
+          "question": "How much fuel do you use per year, liters?",
+          "input": {
+            "id": "heatingUsageLiters",
+            "placeholder": "Enter liters",
+            "watchedField": { "id": "heatingType", "value": ["oil"] }
+          },
+          "defaultValue": "1200"
         }
       ]
     },
@@ -78,20 +92,29 @@
           "question": "Do you have a car?",
           "input": {
             "id": "carExistence",
-            "options": ["Yes", "No"],
-            "defaultValue": "Yes"
+            "options": [
+              { "id": "yes", "value": "Yes" },
+              { "id": "no", "value": "No" }
+            ],
+            "defaultValue": "yes"
           },
-          "defaultValue": "Yes"
+          "defaultValue": "yes"
         },
         {
           "question": "What is your car type?",
           "input": {
             "id": "carType",
-            "options": ["Petrol", "Diesel", "Hybrid", "Plug-in Hybrid", "Electric"],
-            "watchedField": { "id": "carExistence", "value": "Yes" },
-            "defaultValue": "Petrol"
+            "options": [
+              { "id": "petrol", "value": "Petrol" },
+              { "id": "diesel", "value": "Diesel" },
+              { "id": "hybrid", "value": "Hybrid" },
+              { "id": "plug-in-hybrid", "value": "Plug-in Hybrid" },
+              { "id": "electric", "value": "Electric" }
+            ],
+            "watchedField": { "id": "carExistence", "value": ["yes"] },
+            "defaultValue": "petrol"
           },
-          "defaultValue": "Petrol"
+          "defaultValue": "petrol"
         },
         {
           "question": "How many kilometers do you drive per year, km?",
@@ -99,7 +122,7 @@
             "id": "kmPerYear",
             "placeholder": "Enter kilometers",
             "patternMessage": "Please enter a valid number",
-            "watchedField": { "id": "carExistence", "value": "Yes" }
+            "watchedField": { "id": "carExistence", "value": ["yes"] }
           },
           "defaultValue": "12320"
         }
@@ -112,8 +135,13 @@
           "question": "Which diet best describes you?",
           "input": {
             "id": "dietType",
-            "options": ["Average (mixed)", "Low-meat", "Vegetarian", "Vegan"],
-            "defaultValue": "Average (mixed)"
+            "options": [
+              { "id": "average", "value": "Average (mixed)" },
+              { "id": "low-meat", "value": "Low-meat" },
+              { "id": "vegetarian", "value": "Vegetarian" },
+              { "id": "vegan", "value": "Vegan" }
+            ],
+            "defaultValue": "average"
           },
           "note": "Diet choices impact food-related emissions."
         },
@@ -121,8 +149,12 @@
           "question": "Do you waste food frequently?",
           "input": {
             "id": "foodWaste",
-            "options": ["Rarely", "Sometimes", "Often"],
-            "defaultValue": "Sometimes"
+            "options": [
+              { "id": "rarely", "value": "Rarely" },
+              { "id": "sometimes", "value": "Sometimes" },
+              { "id": "often", "value": "Often" }
+            ],
+            "defaultValue": "sometimes"
           },
           "note": "Food waste increases effective emissions per consumed meal."
         }
@@ -148,8 +180,12 @@
           "question": "Do you buy many electronics / fast-fashion items (frequency)?",
           "input": {
             "id": "buyFrequency",
-            "options": ["Rarely", "Occasionally", "Often"],
-            "defaultValue": "Occasionally"
+            "options": [
+              { "id": "rarely", "value": "Rarely" },
+              { "id": "sometimes", "value": "Sometimes" },
+              { "id": "often", "value": "Often" }
+            ],
+            "defaultValue": "sometimes"
           }
         }
       ],
@@ -185,6 +221,167 @@
     },
     "averageInfo": {
       "text": "Durchschnittswert:"
+    },
+    "house": {
+      "title": "Energieverbrauch im Haushalt",
+      "questions": [
+        {
+          "question": "Wie viele Personen leben in Ihrem Haushalt?",
+          "input": {
+            "id": "householdSize",
+            "placeholder": "Menge eingeben",
+            "patternMessage": "Bitte geben Sie eine gültige Zahl ein"
+          },
+          "defaultValue": "2"
+        },
+        {
+          "question": "Wie viel Strom verbrauchen Sie pro Jahr (kWh)?",
+          "input": {
+            "id": "electricityUsage",
+            "placeholder": "kWh eingeben",
+            "patternMessage": "Bitte geben Sie eine gültige Zahl ein"
+          },
+          "defaultValue": "3500"
+        },
+        {
+          "question": "Wie heizen Sie Ihr Zuhause?",
+          "input": {
+            "id": "heatingType",
+            "options": [
+              { "id": "gas", "value": "Erdgas" },
+              { "id": "oil", "value": "Heizöl" },
+              { "id": "district", "value": "Fernwärme" },
+              { "id": "pump", "value": "Wärmepumpe" },
+              { "id": "electricity", "value": "Strom" }
+            ],
+            "defaultValue": "gas"
+          },
+          "defaultValue": "gas"
+        },
+        {
+          "question": "Wie viel Heizenergie verbrauchen Sie pro Jahr (kWh)?",
+          "input": {
+            "id": "heatingUsageKWh",
+            "placeholder": "kWh eingeben",
+            "watchedField": {
+              "id": "heatingType",
+              "value": ["gas", "district", "pump", "electricity"]
+            }
+          },
+          "defaultValue": "9000"
+        },
+        {
+          "question": "Wie viel Heizöl verbrauchen Sie pro Jahr (Liter)?",
+          "input": {
+            "id": "heatingUsageLiters",
+            "placeholder": "Liter eingeben",
+            "watchedField": { "id": "heatingType", "value": ["oil"] }
+          },
+          "defaultValue": "1200"
+        }
+      ]
+    },
+    "transport": {
+      "title": "Verkehr",
+      "questions": [
+        {
+          "question": "Haben Sie ein Auto?",
+          "input": {
+            "id": "carExistence",
+            "options": [
+              { "id": "yes", "value": "Ja" },
+              { "id": "no", "value": "Nein" }
+            ],
+            "defaultValue": "yes"
+          },
+          "defaultValue": "yes"
+        },
+        {
+          "question": "Welchen Autotyp fahren Sie?",
+          "input": {
+            "id": "carType",
+            "options": [
+              { "id": "petrol", "value": "Benzin" },
+              { "id": "diesel", "value": "Diesel" },
+              { "id": "hybrid", "value": "Hybrid" },
+              { "id": "plug-in-hybrid", "value": "Plug-in-Hybrid" },
+              { "id": "electric", "value": "Elektro" }
+            ],
+            "watchedField": { "id": "carExistence", "value": ["yes"] },
+            "defaultValue": "petrol"
+          },
+          "defaultValue": "petrol"
+        },
+        {
+          "question": "Wie viele Kilometer fahren Sie pro Jahr (km)?",
+          "input": {
+            "id": "kmPerYear",
+            "placeholder": "Kilometer eingeben",
+            "patternMessage": "Bitte geben Sie eine gültige Zahl ein",
+            "watchedField": { "id": "carExistence", "value": ["yes"] }
+          },
+          "defaultValue": "12320"
+        }
+      ]
+    },
+    "eating": {
+      "title": "Ernährung",
+      "questions": [
+        {
+          "question": "Welche Ernährungsweise beschreibt Sie am besten?",
+          "input": {
+            "id": "dietType",
+            "options": [
+              { "id": "average", "value": "Durchschnittlich (gemischt)" },
+              { "id": "low-meat", "value": "Wenig Fleisch" },
+              { "id": "vegetarian", "value": "Vegetarisch" },
+              { "id": "vegan", "value": "Vegan" }
+            ],
+            "defaultValue": "average"
+          },
+          "note": "Die Ernährungswahl beeinflusst die ernährungsbedingten Emissionen."
+        },
+        {
+          "question": "Werfen Sie häufig Lebensmittel weg?",
+          "input": {
+            "id": "foodWaste",
+            "options": [
+              { "id": "rarely", "value": "Selten" },
+              { "id": "sometimes", "value": "Manchmal" },
+              { "id": "often", "value": "Oft" }
+            ],
+            "defaultValue": "sometimes"
+          },
+          "note": "Lebensmittelverschwendung erhöht die Emissionen pro verzehrter Mahlzeit."
+        }
+      ]
+    },
+    "consumption": {
+      "title": "Sonstiger Konsum (Waren & Dienstleistungen)",
+      "questions": [
+        {
+          "question": "Wie hoch schätzen Sie Ihre monatlichen Ausgaben für nicht lebensnotwendige Güter (EUR)?",
+          "input": {
+            "id": "monthlyGoodsSpending",
+            "placeholder": "EUR pro Monat eingeben",
+            "patternMessage": "Bitte geben Sie eine gültige Zahl ein"
+          },
+          "defaultValue": "200",
+          "note": "Dient zur Schätzung von Scope-3-Emissionen aus Gütern (Annäherung)."
+        },
+        {
+          "question": "Kaufen Sie häufig Elektronik oder Fast-Fashion-Artikel?",
+          "input": {
+            "id": "buyFrequency",
+            "options": [
+              { "id": "rarely", "value": "Selten" },
+              { "id": "sometimes", "value": "Manchmal" },
+              { "id": "often", "value": "Oft" }
+            ],
+            "defaultValue": "sometimes"
+          }
+        }
+      ]
     },
     "getResultsButton": {
       "text": "Ergebnisse erzielen"

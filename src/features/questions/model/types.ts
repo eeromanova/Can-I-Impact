@@ -1,10 +1,11 @@
+import { Option } from '@/shared/model/types';
 export type SurveyInput = {
   id: string;
   placeholder?: string;
-  options?: string[];
+  options?: Option[];
   patternMessage?: string;
   default?: string;
-  watchedField?: { id: string; value: string };
+  watchedField?: { id: string; value: string[] };
 };
 
 export type SurveyQuestion = {
