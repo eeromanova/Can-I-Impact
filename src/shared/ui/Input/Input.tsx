@@ -17,7 +17,9 @@ export const Input = ({ placeholder, value, onBlur, name, onChange }: Props) => 
     '[&:not(:placeholder-shown)]:border-transparent'
   );
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
+    // onChange?.(e.target.value);
+    const cleaned = e.target.value.replace(/[^0-9]/g, '');
+    onChange?.(cleaned);
   };
   return (
     <input
