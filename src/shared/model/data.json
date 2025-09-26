@@ -142,8 +142,7 @@
               { "id": "vegan", "value": "Vegan" }
             ],
             "defaultValue": "average"
-          },
-          "note": "Diet choices impact food-related emissions."
+          }
         },
         {
           "question": "Do you waste food frequently?",
@@ -155,12 +154,9 @@
               { "id": "often", "value": "Often" }
             ],
             "defaultValue": "sometimes"
-          },
-          "note": "Food waste increases effective emissions per consumed meal."
+          }
         }
-      ],
-      "defaultAnnualEmissionsPerPerson_kgCO2e": 2300,
-      "defaultNote": "Average diet-related emissions per person per year in Germany (kg CO2e)."
+      ]
     },
 
     "consumption": {
@@ -173,8 +169,7 @@
             "placeholder": "Enter EUR per month",
             "patternMessage": "Please enter a valid number"
           },
-          "defaultValue": "200",
-          "note": "Used to estimate scope-3 like emissions from goods (approximation)."
+          "defaultValue": "200"
         },
         {
           "question": "Do you buy many electronics / fast-fashion items (frequency)?",
@@ -188,9 +183,7 @@
             "defaultValue": "sometimes"
           }
         }
-      ],
-      "defaultAnnualEmissionsPerPerson_kgCO2e": 1600,
-      "defaultNote": "A rough average for consumption-related emissions per person per year (goods & services) — used when user does not provide details."
+      ]
     },
     "getResultsButton": {
       "text": "Get Results"
