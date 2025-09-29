@@ -1,16 +1,26 @@
 import { Vector } from '@/shared/assets';
+import { usePagination } from '@/shared/utils';
+
 type Props = {
   onHandleClickBack: () => void;
   onHandleClickNext: () => void;
-  currentPage: string;
+  currentPage: number;
+  totalPages: number;
 };
 
-export const PagesToggler = ({ currentPage, onHandleClickBack, onHandleClickNext }: Props) => {
+export const PagesToggler = ({
+  currentPage,
+  totalPages,
+  onHandleClickBack,
+  onHandleClickNext,
+}: Props) => {
+  const { totalSafe, currentPageSafe } = usePagination(currentPage, totalPages);
   return (
     <div className='flex w-full items-center justify-between'>
-      {currentPage !== '1' && (
+      {currentPageSafe !== 1 && (
         <button
           className='mr-auto'
+          aria-label='back'
           onClick={() => {
             onHandleClickBack();
           }}
@@ -18,9 +28,10 @@ export const PagesToggler = ({ currentPage, onHandleClickBack, onHandleClickNext
           <Vector isNext={false} />
         </button>
       )}
-      {currentPage !== '4' && (
+      {currentPageSafe !== totalSafe && (
         <button
           className='ml-auto'
+          aria-label='next'
           onClick={() => {
             onHandleClickNext();
           }}

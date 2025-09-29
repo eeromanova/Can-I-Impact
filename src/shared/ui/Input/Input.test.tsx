@@ -51,7 +51,7 @@ describe('Input (critical behavior)', () => {
     );
     const input = screen.getByPlaceholderText(/enter number/i);
 
-    fireEvent.blur(input); // явно вызываем blur
+    fireEvent.blur(input);
     expect(handleBlur).toHaveBeenCalledTimes(1);
   });
 

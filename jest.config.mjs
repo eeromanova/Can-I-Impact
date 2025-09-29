@@ -7,8 +7,9 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '\\.(css|scss|sass)$': 'identity-obj-proxy',
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@/shared/(.*)$': '<rootDir>/shared/$1',
+    '^@/utils/(.*)$': '<rootDir>/shared/utils/$1',
+    '^@/utils$': '<rootDir>/shared/utils/index.ts',
   },
 };
 
