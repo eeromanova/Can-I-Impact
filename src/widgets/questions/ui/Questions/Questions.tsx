@@ -45,13 +45,14 @@ export const Questions = ({ initialPage }: QuestionsClientProps) => {
     <div className='flex w-full flex-col items-center gap-10'>
       {CurrentComponent}
       <PagesToggler
-        currentPage={currentPage}
+        currentPage={Number(currentPage)}
+        totalPages={Pages.length}
         onHandleClickBack={() => goTo(Number(currentPage) - 1)}
         onHandleClickNext={() => goTo(Number(currentPage) + 1)}
       />
       <ProgressBar
-        currentPage={Number(currentPage) + 1}
-        total={Pages.length}
+        currentPage={Number(currentPage)}
+        totalPages={Pages.length}
       />
       {currentPage === '4' && (
         <Button

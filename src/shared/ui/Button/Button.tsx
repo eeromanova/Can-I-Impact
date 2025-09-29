@@ -50,6 +50,7 @@ export const Button = ({
       disabled={disabled}
       aria-disabled={disabled}
       aria-label={ariaLabel}
+      data-color={colorStyle}
       className={colorClasses[colorStyle]}
     >
       {text}

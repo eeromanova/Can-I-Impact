@@ -14,7 +14,7 @@ export const useQuestionsStorage = () => {
   useEffect(() => {
     try {
       if (typeof window !== 'undefined') {
-        const raw = localStorage.getItem(STORAGE_KEY);
+        const raw = sessionStorage.getItem(STORAGE_KEY);
         if (raw) {
           const parsed = JSON.parse(raw) as AnswerMap;
           setAnswers(parsed || {});
@@ -44,7 +44,7 @@ export const useQuestionsStorage = () => {
     setAnswers((prev) => {
       const next = { ...prev, [questionId]: value };
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));
       } catch (err) {
         console.warn('Failed to save answers', err);
       }
@@ -65,7 +65,7 @@ export const useQuestionsStorage = () => {
   const clearAnswers = useCallback(() => {
     setAnswers({});
     try {
-      localStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(STORAGE_KEY);
     } catch (e) {
       console.warn('Failed to clear answers', e);
     }
